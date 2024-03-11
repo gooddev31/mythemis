@@ -1,25 +1,57 @@
+import {getUser} from "./controllers/user.controller";
+
 require("dotenv").config();
-const dbConnect = require("./config/dbConnect");
+require('express-async-errors')
+
+const bodyParser = require("body-parser");
+const dbConnect = require("./config/dbConnect.config");
 const mongoose = require("mongoose");
-const {logger, logEvents} = require("./middleware/logger");
+const {logger, logEvents} = require("./middleware/logger.middleware");
 const cors = require("cors");
-const corsConfig = require('./config/corsConfig');
-const errorHandler = require('./middleware/errorHandler')
+const cookieParser = require("cookie-parser");
+const corsConfig = require('./config/corsConfig.config');
+const AuthRouter = require('./routes/auth.router')
+const UserRouter = require("./routes/user.router");
+const {errorHandlerMiddleware} = require('./middleware/errorHandler.middleware')
+import {authenticate} from "./middleware/auth.middleware";
+
 import express, { Express, Request, Response } from "express";
+import {ObjectId} from "mongodb";
+import helmet from "helmet";
+
+
+
 const app: Express = express();
 const PORT = process.env.PORT || 3001
+
+interface UserBasicInfo {
+    _id: ObjectId;
+    username: string;
+    email: string;
+}
+
+declare global {
+    namespace Express {
+        interface Request {
+            user?: UserBasicInfo | null;
+        }
+    }
+}
 
 dbConnect();
 
 app.use(logger);
+app.use(helmet());
+app.disable("x-powered-by");
+app.use(bodyParser.json());
+app.use(cookieParser());
 app.use(express.json())
 app.use(cors(corsConfig))
 
-app.get("/", (req: Request, res: Response) => {
-    res.send("Express + TypeScript Server");
-});
+app.use("/users/:id",authenticate, getUser);
+app.use(AuthRouter)
 
-app.use(errorHandler)
+app.use(errorHandlerMiddleware)
 
 mongoose.connection.once("open", () => {
     console.log("Connection to MongoDB success");

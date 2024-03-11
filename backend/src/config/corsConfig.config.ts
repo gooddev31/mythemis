@@ -1,6 +1,6 @@
-const allowedOrigin = require('./allowedOrigins');
+const allowedOrigin = require('./allowedOrigins.config');
 type originCallback = (err?: Error | null, allow?: boolean) => void;
-const corsConfig = {
+const corsConfigConfig = {
     origin: (origin:string, callback:originCallback) => {
         if (allowedOrigin.indexOf(origin) !== -1 || !origin) {
             callback(null, true)
@@ -11,4 +11,4 @@ const corsConfig = {
     credentials: true,
     optionsSuccessStatus: 200
 }
-module.exports = corsConfig;
+module.exports = corsConfigConfig;

@@ -1,0 +1,35 @@
+20240311	10:53:52	cde3c9ba-6edf-4801-8ef8-f0f2dc06689d	TypeError: allowedOriginsConfig.indexOf is not a function	GET	/	undefined
+20240311	14:37:24	0a5d0ed6-36eb-477a-8216-54515d43753e	Error: secretOrPrivateKey must have a value	POST	/register	undefined
+20240311	14:38:07	c7c0e8c0-a74d-4482-b1c3-5c48bb2ed757	Error: secretOrPrivateKey must have a value	POST	/register	undefined
+20240311	14:43:44	df83bc1a-3f62-4d42-a8b2-9dec9157f887	Error: secretOrPrivateKey must have a value	POST	/register	undefined
+20240311	14:44:46	920ae044-828f-4842-9ed9-61d0367809e7	Error: secretOrPrivateKey must have a value	POST	/register	undefined
+20240311	15:31:20	d765a6a2-c4a3-4f2c-be57-c5fe81744100	AuthenticationError: Invalid token	GET	/users/65eefc80c8426a4887472415	undefined
+20240311	15:34:26	1806bd2b-99ef-46fc-a697-bd5d865014b7	AuthenticationError: Invalid token	GET	/users/65eefc80c8426a4887472415	undefined
+20240311	15:35:07	62ecc632-68d2-41ec-8f91-f75026adaa9a	AuthenticationError: Invalid token	GET	/users/?id=65eefc80c8426a4887472415	undefined
+20240311	15:35:34	78a9e00b-c9cf-4bb1-9835-37a6b1b2915f	AuthenticationError: Invalid token	GET	/users/?id=65eefc80c8426a4887472415	undefined
+20240311	15:38:48	f37e4fef-098f-4e98-aa22-f1b0f6de0ec1	AuthenticationError: Invalid token	GET	/users/?id=65eefc80c8426a4887472415	undefined
+20240311	15:52:23	2435bbd3-626f-4e55-9600-df55fadb32df	AuthenticationError: Invalid token	GET	/users/?id=65eefc80c8426a4887472415	undefined
+20240311	15:53:25	02be161a-24fd-4c94-8f8e-7da6ab5eb170	AuthenticationError: Invalid token	GET	/users/?id=65eefc80c8426a4887472415	undefined
+20240311	15:53:25	123591c1-587d-4db7-b3dc-d6878e568f2f	AuthenticationError: Invalid token	GET	/users/?id=65eefc80c8426a4887472415	undefined
+20240311	15:57:32	a264cf5d-896f-43c4-8671-8247414c3280	AuthenticationError: Invalid token	GET	/users/?id=65eefc80c8426a4887472415	undefined
+20240311	15:57:48	3299217e-20f2-417a-b30e-e7d46e8c1944	AuthenticationError: Invalid token	GET	/users/	undefined
+20240311	15:58:21	823db8d0-1917-4481-8ec6-01e2861c44a9	AuthenticationError: Invalid token	GET	/users/	undefined
+20240311	15:58:33	fbb7c46f-0992-41aa-87ba-a28dc20d93a6	AuthenticationError: Invalid token	GET	/users/	undefined
+20240311	15:58:35	77d60657-5c7f-4452-9a6e-a5ca9d2361d7	AuthenticationError: Invalid token	GET	/users/	undefined
+20240311	16:00:37	11c51e87-b9fe-4ad9-b92b-0a3b76ced655	AuthenticationError: Invalid token	GET	/users/	undefined
+20240311	16:01:50	20d5770a-80f2-43ef-bac5-eb5e2148cf2e	AuthenticationError: Invalid token	GET	/users/	undefined
+20240311	16:01:52	e49877c7-ebbb-4614-af2e-863416540884	AuthenticationError: Invalid token	GET	/users/	undefined
+20240311	16:02:46	c240a7e4-7ced-409b-869c-e77cb90cbc2f	AuthenticationError: Invalid token	GET	/users/	undefined
+20240311	16:02:54	899c5d90-c821-42cb-a4a7-3093ffb28dd5	AuthenticationError: Invalid token	GET	/users/	undefined
+20240311	16:03:25	1b774fa4-6bee-4a92-977b-1d95cda72eb1	AuthenticationError: Invalid token	GET	/users/?id=65eefc80c8426a4887472415	undefined
+20240311	16:03:26	4dc918ed-5b14-4663-9911-af5b896872fb	AuthenticationError: Invalid token	GET	/users/?id=65eefc80c8426a4887472415	undefined
+20240311	16:07:22	3b40bd0e-cf43-4bf0-9426-cb23feb1d4a0	AuthenticationError: Invalid token	GET	/users/?id=65eefc80c8426a4887472415	undefined
+20240311	16:07:47	8909f003-90f4-47d3-b4ba-7b6f500be00c	AuthenticationError: Invalid token	GET	/users/?id=65eefc80c8426a4887472415	undefined
+20240311	16:07:47	0300b18b-bb02-46ee-b70e-a523739a9256	AuthenticationError: Invalid token	GET	/users/?id=65eefc80c8426a4887472415	undefined
+20240311	16:07:58	444ecb12-6949-4798-8c6e-03437de2a5f3	AuthenticationError: Invalid token	GET	/users/?id=65eefc80c8426a4887472415&token=eyJhbGciOiJIUzI1NiJ9.e30.jEiI1inCty7e5ILECAG1nAioQD_w4yKHTG0Bi_sizgg	undefined
+20240311	16:08:05	74286810-d341-40f4-ad50-59983575c2d4	AuthenticationError: Invalid token	GET	/users/?id=65eefc80c8426a4887472415	undefined
+20240311	16:09:56	f9da2cb9-5894-4602-ad6f-309b8d4bc03e	AuthenticationError: Invalid token	GET	/users/?id=65eefc80c8426a4887472415	undefined
+20240311	16:10:26	440a1ffb-3fc6-46f4-a9f2-86d49de88f3d	AuthenticationError: Invalid token	GET	/users/?id=65eefc80c8426a4887472415	undefined
+20240311	16:11:16	29e48c06-e7bf-4f76-a991-bb451ffba3e3	AuthenticationError: Invalid token	GET	/users/?id=65eefc80c8426a4887472415	undefined
+20240311	16:11:19	428ad3ce-20ef-4fd2-94e5-30b445fd6e1f	AuthenticationError: Invalid token	GET	/users/?id=65eefc80c8426a4887472415	undefined
+20240311	16:16:47	ce57d15d-299b-4faf-95b3-817f50cce199	AuthenticationError: Invalid token	GET	/user	undefined

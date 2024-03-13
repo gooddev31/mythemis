@@ -17,7 +17,7 @@ const ActionSectionFavouritesFolderItemComponent = (props: IActionSectionFavouri
     return(
         <div className="w-full">
             <button onClick={() => setOpenFav(!openFav)} className="flex justify-between w-full text-[15.81px] text-[#99B2C6] font-[500] transition hover:bg-[#E9E9E9]">
-                <span className="flex items-start gap-[6.78px]">
+                <span className="flex items-center gap-[6.78px]">
                     <Image src="/img/elemSideBarFav2.svg" alt="" width={18.07} height={18.07}/>{props.name}</span>
                     {props.items
                         ?openFav

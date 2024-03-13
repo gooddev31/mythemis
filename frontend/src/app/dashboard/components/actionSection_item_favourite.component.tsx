@@ -1,5 +1,4 @@
 import Image from "next/image";
-import {useState} from "react";
 
 const ActionSection_item_favouriteComponent = (props: {stateOpen:boolean, setStateOpen: (args: boolean) => void}) => {
     return(

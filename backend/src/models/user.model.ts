@@ -36,7 +36,7 @@ const userSchema = new mongoose.Schema<User>({
     subscribe: {
         type: Date,
         required: false
-    }
+    },
 });
 
 userSchema.pre("save", async function (next) {

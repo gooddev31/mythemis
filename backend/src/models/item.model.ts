@@ -19,6 +19,12 @@ const ItemSchema = new mongoose.Schema<IItem>({
         },
         username: String
     },
+    folder: {
+        id: {
+            type: ObjectId,
+            ref: "Folder"
+        },
+    },
     lastEdit: {
         required: false,
         type: Date,

@@ -3,9 +3,7 @@ import {createFolder, deleteFolder, getFolder, updateFolder} from "../controller
 const itemRouter = require('./item.router')
 const router = express.Router();
 
-router.get('/:id', getFolder)
 router.get('/', getFolder)
-
 router.post("/", createFolder)
 router.delete("/delete/:id", deleteFolder)
 router.put("/update/:id", updateFolder)

@@ -2,24 +2,26 @@ import {Response, Request, NextFunction} from "express";
 import FolderModel from "../models/folder.model";
 
 const getFolder = async (req: Request,res: Response) => {
-    const FolderId = req.params.id
-    if(FolderId) {
-        const Folders = await FolderModel.findOne({FolderId})
+    const page = req.params.page ? Number(req?.query?.page): 1
+    const amount = req.query.amount ? Number(req?.query?.amount): 5
+    if(!req.query.id && !req.query.page && !req.query.amount){
+        const Folders = await FolderModel.find({})
         if(Folders) {
             res.status(200).json({message: {
                     Folders
-                }})
+            }})
         }else {
             res.status(400).json({message:
                     "No Folders"
             })
         }
-    }else {
-        const Folders = await FolderModel.findOne({})
+    }else if(!req.query.id) {
+        const Folders = await FolderModel.find({
+        }).limit(Number(amount)).skip(Number((page-1) * amount + (Number(page-1 === 0? null: 1))))
         if(Folders) {
             res.status(200).json({message: {
                     Folders
-                }})
+            }})
         }else {
             res.status(400).json({message:
                     "No Folders"
@@ -60,6 +62,9 @@ const updateFolder = async (req: Request, res: Response) => {
     }else {
         res.status(404).json({message: "Not found"})
     }
+}
+const searchItem = async (req: Request, res: Response) => {
+
 }
 
 export {getFolder, createFolder, deleteFolder, updateFolder}

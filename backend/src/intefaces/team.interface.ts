@@ -1,11 +1,14 @@
-import User from "./user.interface";
-import ObjectId from "mongoose";
+import { ObjectId } from "mongoose";
 
-
-interface ITeam extends Document{
-    name: string,
-    users: Array<User>,
-    lastEdit?: Date,
-    createDate: Date,
+interface UserWithRole {
+  userId: ObjectId;
+  role: string;
 }
-export default ITeam
+
+interface ITeam extends Document {
+  name: string;
+  users: UserWithRole[];
+  lastEdit?: Date;
+  createDate: Date;
+}
+export default ITeam;

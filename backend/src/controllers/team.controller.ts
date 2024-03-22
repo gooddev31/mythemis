@@ -1,23 +1,7 @@
 import { Request, Response } from "express";
 import UserModel from "../models/user.model";
-import { UserRole, TeamModel } from "../models/team.model";
+import TeamModel, { UserRole } from "../models/team.model";
 import * as mongoose from "mongoose";
-
-export const validateId = async (
-  req: Request,
-  res: Response,
-  next: Function,
-  id: string
-) => {
-  const team = await TeamModel.findById(id);
-
-  if (!team) {
-    return res.status(404).json({ error: "Team not found" });
-  }
-
-  res.locals.team = team;
-  next();
-};
 
 export const validateUser = async (
   req: Request,
@@ -154,7 +138,9 @@ export const getAllMembers = async (req: Request, res: Response) => {
     const team = res.locals.team;
 
     if (!team.users || team.users.length === 0) {
-      return res.status(404).json({ message: "No members found for this team" });
+      return res
+        .status(404)
+        .json({ message: "No members found for this team" });
     }
 
     res.status(200).json({ members: team.users });

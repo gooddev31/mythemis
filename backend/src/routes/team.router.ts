@@ -4,17 +4,18 @@ import {
   createTeam,
   deleteMember,
   updateMemberRole,
-  validateId,
   validateUser,
   getAllMembers,
 } from "../controllers/team.controller";
 import { authenticate, authorize } from "../middleware/auth.middleware";
+import { validateId } from "../middleware/validate.middleware";
 import {
   createFolderForTeam,
   deleteFolderFromTeam,
   getFoldersForTeam,
   updateFolder,
 } from "../controllers/folder.controller";
+import Team from "../models/team.model";
 
 const router = express.Router();
 
@@ -22,7 +23,7 @@ router.use(authenticate);
 
 router.post("/", createTeam);
 
-router.param("id", validateId);
+router.param("id", validateId(Team));
 
 router
   .route("/:id/member")

@@ -1,23 +1,6 @@
 import { Response, Request, NextFunction } from "express";
 import FolderModel from "../models/folder.model";
-import { TeamModel } from "../models/team.model";
-import UserModel from "../models/user.model";
-
-export const validateId = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-  id: string
-) => {
-  const folder = await FolderModel.findOne({ _id: id });
-
-  if (!folder) {
-    return res.status(404).json({ message: "Folder not found" });
-  }
-
-  res.locals.folder = folder;
-  next();
-};
+import TeamModel from "../models/team.model";
 
 const checkPermissions = async (
   req: Request,

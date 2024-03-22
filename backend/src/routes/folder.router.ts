@@ -5,13 +5,14 @@ import {
   getFolder,
   getUserFolders,
   updateFolder,
-  validateId,
   checkPermissions,
 } from "../controllers/folder.controller";
+import { validateId } from "../middleware/validate.middleware";
+import Folder from "../models/folder.model";
 const itemRouter = require("./item.router");
 const router = express.Router();
 
-router.param("id", validateId);
+router.param("id", validateId(Folder));
 
 router.get("/my", getUserFolders);
 

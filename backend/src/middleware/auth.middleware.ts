@@ -3,7 +3,7 @@ import jwt, { JwtPayload } from "jsonwebtoken";
 import User from "../models/user.model";
 import asyncHandler from "express-async-handler";
 const { AuthenticationError } = require("./errorHandler.middleware");
-import { UserRole, TeamModel } from "../models/team.model";
+import { UserRole } from "../models/team.model";
 
 const authenticate = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {

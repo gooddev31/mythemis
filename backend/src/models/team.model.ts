@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import ObjectId from "mongoose";
 import ITeam from "../intefaces/team.interface";
 
-enum UserRole {
+export enum UserRole {
   USER = "user",
   ADMIN = "admin",
 }
@@ -41,4 +41,4 @@ const TeamSchema = new mongoose.Schema({
 
 const TeamModel = mongoose.model("Team", TeamSchema);
 
-export { UserRole, TeamModel };
+export default TeamModel;

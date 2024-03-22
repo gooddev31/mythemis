@@ -3,7 +3,6 @@ import { Request, Response } from "express";
 import FolderModel from "../models/folder.model";
 
 const getItem = async (req: Request, res: Response) => {
-  console.log(req.query.id);
   const ItemId = req.query.id;
   if (ItemId) {
     const Items = await ItemModel.findOne({ ItemId });

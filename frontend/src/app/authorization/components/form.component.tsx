@@ -77,10 +77,12 @@ const InnerForm = (props: FormikProps<FormValues>) => {
                     <Image src="/img/googleIcon_small.svg" alt="googleLogo" width={27} height={27}/>
                     Google
                 </button>
+                <Link href="/authorization/registration">
                 <p className="text-[18px] font-[700] flex gap-[4px] mt-[40.86px]">
                     <span className="text-[#99B2C6]">Henüz üye değil misin?</span>
                     Üye ol.
                 </p>
+                </Link>
             </Form>
         );
     } else if(props.type === "register"){

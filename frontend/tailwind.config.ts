@@ -9,8 +9,23 @@ const config: Config = {
   ],
   theme: {
     fontFamily: {
-      "quicksand": ["Quicksand", 'sans-serif']
+      "quicksand": ["Quicksand", 'sans-serif'],
+      'ibm-plex-sans': ['IBM Plex Sans', 'system-ui', 'sans-serif'],
+      outfit: ['Outfit', 'system-ui', 'sans-serif'],
+      roboto: ['Roboto', 'system-ui', 'sans-serif'],
     },
+    fontSize: {
+      xxs: ['10px', '12.6px'],
+      xs: ['12px', '16.8px'],
+      sm: ['14px', '17.6px'],
+      md: ['16px', '22.4px'],
+      lg: ['18px', '40px'],
+      xl: ['20px', '25.2px'],
+      '2xl': ['24px', '18px'],
+      '3xl': ['32px', '24px'],
+      '4xl': ['32px', '40px'],
+    },
+    
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -26,7 +41,7 @@ const config: Config = {
     plugin(function({ matchUtilities, theme }) {
       matchUtilities(
           {
-            'bg-gradient': (angle) => ({
+            'bg-gradient': (angle:any) => ({
               'background-image': `linear-gradient(${angle}, var(--tw-gradient-stops))`,
             }),
           },

@@ -1,7 +1,7 @@
 import Image from "next/image";
 const MainSectionNewsBannerComponent = () => {
     return(
-        <div className="w-[1038.24px] h-[608.21px] from-[#000000] from-0% via-[#2E2E2E] via-85% to-[#000000] to-[98.26%] bg-gradient-100 rounded-[19px] mt-[53.69px] px-[26.65px] pt-[67px] pb-[52px] z-[10] relative">
+        <div className="w-full h-[608.21px] from-[#000000] from-0% via-[#2E2E2E] via-85% to-[#000000] to-[98.26%] bg-gradient-100 rounded-[19px] mt-[53.69px] px-[26.65px] pt-[67px] pb-[52px] z-[10] relative">
             <div className="relative">
                 <Image src="/img/bubbleMain.svg" alt="Bubble" width={425} height={421} className="absolute end-0 z-0"/>
                 <h2 className="text-[#FFFFFF] font-[700] text-[26px]">Hoşgeldiniz.</h2>

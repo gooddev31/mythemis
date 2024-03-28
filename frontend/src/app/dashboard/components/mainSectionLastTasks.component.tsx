@@ -3,7 +3,7 @@ import MainSectionPaginationComponent from "@/app/dashboard/components/mainSecti
 
 const MainSectionLastTasksComponent = () => {
     return(
-        <div className="max-h-[487.7px] w-[1037.33px] mt-[35.41px] bg-[#FFFFFF] rounded-[19px] px-[35px] pt-[31px] pb-[16px]">
+        <div className="max-h-[487.7px] w-full mt-[35.41px] bg-[#FFFFFF] rounded-[19px] px-[35px] pt-[31px] pb-[16px]">
             <h3 className="font-[700] text-[18px]">Son çıkan emsal kararlar</h3>
             <MainSectionLastTasksTable/>
             <div className="flex gap-[26px] mt-[21.47px]">

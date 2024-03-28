@@ -1,7 +1,7 @@
 "use client"
 import ActionSectionFavouritesFileItemComponent, {
     IActionSectionFavouritesFileItemComponent
-} from "@/app/dashboard/components/actionSection_favourites_file_item.component";
+} from "@/components/sideBar/actionSection_favourites_file_item.component";
 import Image from "next/image";
 import Link from "next/link";
 import {useState} from "react";

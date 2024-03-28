@@ -31,7 +31,7 @@ type InputTypes =
   | 'url'
   | 'week';
 
-type VariantTypes = 'basic' | 'search' | 'clear' | 'personal' | "chat";
+type VariantTypes = 'basic' | 'search' | 'clear' | 'personal' | "chat" | "profile";
 
 const variantClasses: Record<VariantTypes, string> = {
   clear: '',
@@ -43,6 +43,9 @@ const variantClasses: Record<VariantTypes, string> = {
     'roboto min-h-[48px] min-w-[318px] pl-4 bg-transparent placeholder:white-transparent-70 text-[16px] text-white-transparent-70 font-normal border-b-[1px] border-white-transparent-70 focus:text-white-transparent-70 outline-none',
   chat:
     'roboto min-h-[48px] w-full min-w-[318px] pl-4 bg-transparent placeholder:white-transparent-70 text-[16px] text-white-transparent-70 font-normal text-zinc-600 text-base focus:text-white-transparent-70 outline-none',
+
+  profile: "w-full text-zinc-400 text-[15px] font-semibold font-['Quicksand'] leading-[23px] min-h-[48px] w-full min-w-[318px] pl-4 bg-transparent  rounded-md outline-none focus:text-white-transparent-70 ",
+
 };
 
 interface Props extends HTMLInputProps {

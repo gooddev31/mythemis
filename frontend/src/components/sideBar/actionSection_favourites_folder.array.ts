@@ -1,6 +1,6 @@
 import {
     IActionSectionFavouritesFolderItemComponent
-} from "@/app/dashboard/components/actionSection_favourites_folder_item.component";
+} from "@/components/sideBar/actionSection_favourites_folder_item.component";
 
 
 export const actionSectionFavouritesFolderArray:Array<IActionSectionFavouritesFolderItemComponent> = [

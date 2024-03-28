@@ -1,10 +1,10 @@
 "use client"
-import {ActionSection_itemsArray} from "@/app/dashboard/components/actionSection_items.array";
-import ActionSection_itemComponent from "@/app/dashboard/components/actionSection_item.component";
-import ActionSection_item_favouriteComponent from "@/app/dashboard/components/actionSection_item_favourite.component";
+import {ActionSection_itemsArray} from "@/components/sideBar/actionSection_items.array";
+import ActionSection_itemComponent from "@/components/sideBar/actionSection_item.component";
+import ActionSection_item_favouriteComponent from "@/components/sideBar/actionSection_item_favourite.component";
 import {useState} from "react";
 import ActionSectionItemFavouriteModalFormComponent
-    from "@/app/dashboard/components/actionSection_item_favourite_modalForm.component";
+    from "@/components/sideBar/actionSection_item_favourite_modalForm.component";
 
 const ActionSectionComponent = () => {
     const [stateOpen, setStateOpen] = useState<boolean>(false);

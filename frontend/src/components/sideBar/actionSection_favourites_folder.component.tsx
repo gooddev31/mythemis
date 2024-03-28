@@ -1,6 +1,6 @@
-import {actionSectionFavouritesFolderArray} from "@/app/dashboard/components/actionSection_favourites_folder.array";
+import {actionSectionFavouritesFolderArray} from "@/components/sideBar/actionSection_favourites_folder.array";
 import ActionSectionFavouritesFolderItemComponent
-    from "@/app/dashboard/components/actionSection_favourites_folder_item.component";
+    from "@/components/sideBar/actionSection_favourites_folder_item.component";
 
 const ActionSectionFavouritesFolderComponent = () => {
     return(

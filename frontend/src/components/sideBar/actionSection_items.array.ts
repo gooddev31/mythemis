@@ -44,7 +44,8 @@ export const ActionSection_itemsArray: EnumServicesItems = [
     {
         name: "Takım",
         img: "/img/elemSideBar8.svg",
-        key: "Takım"
+        key: "Takım",
+        link: "/dashboard/team"
     },
 
 ]

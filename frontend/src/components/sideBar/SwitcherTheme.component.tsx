@@ -6,12 +6,12 @@ const SwitcherThemeComponent = () => {
     if(theme === "light") {
         return(
             <div className="flex gap-[9px] transition">
-                <Image src="img/lightmode.svg" width={24} height={24}/>
+                <Image src="img/lightmode.svg" alt="lightmode" width={24} height={24}/>
                 <button onClick={() => setTheme("dark")} className="w-[37px] h-[22.49] rounded-full bg-[#99B2C6] px-[1.75px] py-[1.75px]">
                     <div className="w-[20px] h-[20px] rounded-full bg-[#FFFFFF] transition">
                     </div>
                 </button>
-                <Image src="/img/darkmode.svg" width={24} height={24}/>
+                <Image src="/img/darkmode.svg" alt="darkmode" width={24} height={24}/>
             </div>
         )
     }else {

@@ -13,6 +13,7 @@ const config: Config = {
       'ibm-plex-sans': ['IBM Plex Sans', 'system-ui', 'sans-serif'],
       outfit: ['Outfit', 'system-ui', 'sans-serif'],
       roboto: ['Roboto', 'system-ui', 'sans-serif'],
+      
     },
     fontSize: {
       xxs: ['10px', '12.6px'],

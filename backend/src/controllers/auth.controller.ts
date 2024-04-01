@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import UserModel from "../models/user.model";
-import {generateToken, clearToken} from "../utils/auth.utils";
+import {generateToken, clearToken} from "../common/utils/auth.util";
 
 const registerUser = async(req: Request, res: Response) => {
     const {username,email, password, telephone} = req.body;
@@ -23,7 +23,7 @@ const registerUser = async(req: Request, res: Response) => {
                 email:user.email,
                 telephone: user.telephone
             })
-        }else {
+        } else {
             res.status(400).json({ message: "An error occurred in creating the user" });
         }
     }
@@ -32,7 +32,7 @@ const registerUser = async(req: Request, res: Response) => {
 const authenticateUser = async (req: Request, res: Response) => {
     const { email, password } = req.body;
     const user = await UserModel.findOne({ email });
-    if (user && (await user!.comparePassword(password))) {
+    if (user && user!.comparePassword(password)) {
         generateToken(res, user!._id.toString());
         res.status(201).json({
             id: user!._id,

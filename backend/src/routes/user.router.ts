@@ -1,8 +1,11 @@
 import express from "express";
-import { getUser } from "../controllers/user.controller";
+import { getFoldersByUserId, getTeamsFoldersByUserId, getUser } from "../controllers/user.controller";
+import { authenticate } from "../common/middlewares/auth.middleware";
 
 const router = express.Router();
 
-router.get("/:id", getUser);
+router.get("/:userId", getUser);
+router.get("/folders/:userId", authenticate, getFoldersByUserId)
+router.get('/folders/teams/:userId', authenticate, getTeamsFoldersByUserId)
 
-module.exports = router;
+export default router;

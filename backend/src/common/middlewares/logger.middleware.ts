@@ -5,7 +5,7 @@ const fsPromises = require('fs').promises;
 const path = require('path');
 import {Request, Response, NextFunction} from "express";
 
-const logEvents = async (message:string, logFileName:string) => {
+export const logEvents = async (message:string, logFileName:string) => {
     const dateTime = format(new Date(), 'yyyyMMdd\tHH:mm:ss');
     const logItem = `${dateTime}\t${uuid()}\t${message}\n`;
 
@@ -19,10 +19,8 @@ const logEvents = async (message:string, logFileName:string) => {
     }
 }
 
-const loggerMiddleware = (req:Request, res:Response, next: NextFunction) => {
+export const loggerMiddleware = (req:Request, res:Response, next: NextFunction) => {
     logEvents(`${req.method}\t${req.url}\t${req.headers.origin}`, 'reqLog.log');
     console.log(`${req.method} ${req.path}`);
     next();
 }
-
-module.exports = { logEvents, logger: loggerMiddleware };

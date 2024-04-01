@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import ObjectId from "mongoose";
 
 const TeamSchema = new mongoose.Schema({
     name: {
@@ -13,7 +12,7 @@ const TeamSchema = new mongoose.Schema({
     }],
     folders: [
         {
-            ref:"Folder",
+            ref: "Folder",
             type: mongoose.Schema.Types.Mixed,
             required: false,
         }

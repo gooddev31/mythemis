@@ -1,7 +1,8 @@
 import { Request, Response, NextFunction } from "express";
 import jwt, { JwtPayload } from "jsonwebtoken";
-import User from "../models/user.model";
+import User from "../../models/user.model";
 import asyncHandler from "express-async-handler";
+import { UserBasicInfo } from "../interfaces/user.interface";
 const {AuthenticationError} =  require("./errorHandler.middleware");
 
 const authenticate = asyncHandler(
@@ -25,7 +26,7 @@ const authenticate = asyncHandler(
                 throw new AuthenticationError("User not found");
             }
 
-            req.user = user;
+            req.user = user as unknown as UserBasicInfo;
             next();
         } catch (e) {
             throw new AuthenticationError("Invalid token");

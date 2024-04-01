@@ -1,63 +1,55 @@
-import IItem from "./intefaces/item.interface";
+import * as dotenv from 'dotenv';
+import 'express-async-errors';
 
-require("dotenv").config();
-require('express-async-errors')
-
-const bodyParser = require("body-parser");
-const dbConnect = require("./config/dbConnect.config");
-const mongoose = require("mongoose");
-const {logger, logEvents} = require("./middleware/logger.middleware");
-const cors = require("cors");
-const cookieParser = require("cookie-parser");
-const corsConfig = require('./config/corsConfig.config');
-const AuthRouter = require('./routes/auth.router')
-const FolderRouter = require('./routes/folder.router')
-const UserRouter = require('./routes/user.router')
-const {errorHandlerMiddleware} = require('./middleware/errorHandler.middleware')
-import {authenticate} from "./middleware/auth.middleware";
-
-import express, { Express, Request, Response } from "express";
-import {ObjectId} from "mongodb";
+import bodyParser from "body-parser";
+import dbConnect from "./common/configs/dbConnect.config";
+import mongoose from "mongoose";
+import { loggerMiddleware, logEvents } from "./common/middlewares/logger.middleware";
+import cors from "cors";
+import cookieParser from "cookie-parser";
+import AuthRouter from './routes/auth.router';
+import FolderRouter from './routes/folder.router';
+import UserRouter from './routes/user.router';
+import { errorHandlerMiddleware } from './common/middlewares/errorHandler.middleware';
+import { authenticate } from "./common/middlewares/auth.middleware";
+import express, { Express, Request } from "express";
 import helmet from "helmet";
-
-
-
-const app: Express = express();
-const PORT = process.env.PORT || 3001
-
-interface UserBasicInfo {
-    _id: ObjectId;
-    username: string;
-    email: string;
-}
-interface FolderBasicInfo {
-    _id: ObjectId;
-    name: string;
-    items: Array<IItem>
-}
+import allowedOriginsConfig from './common/configs/allowedOrigins.config';
+import { FolderBasicInfo } from './common/interfaces/folder.interface';
+import { UserBasicInfo } from './common/interfaces/user.interface';
 
 declare global {
     namespace Express {
         interface Request {
-            user?: UserBasicInfo | null;
-            folder?: FolderBasicInfo| null
+            user?: UserBasicInfo | any | null;
+            folder?: FolderBasicInfo | null;
+            userId: string;
         }
     }
 }
 
+dotenv.config();
+
+const app: Express = express();
+const PORT = process.env.PORT || 3001
+
 dbConnect();
 
-app.use(logger);
+app.use(loggerMiddleware);
 app.use(helmet());
 app.disable("x-powered-by");
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.json())
-app.use(cors(corsConfig))
+app.use(cors({
+    origin: allowedOriginsConfig,
+    credentials: true,
+    optionsSuccessStatus: 200
+}))
 
-app.use(AuthRouter)
-app.use("/user", authenticate, UserRouter)
-app.use("/folder",authenticate, FolderRouter)
+app.use("/auth", AuthRouter)
+app.use("/users", authenticate, UserRouter)
+app.use("/folders", authenticate, FolderRouter)
 
 app.use(errorHandlerMiddleware)
 
@@ -65,6 +57,7 @@ mongoose.connection.once("open", () => {
     console.log("Connection to MongoDB success");
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 })
+
 mongoose.connection.on('error', (err:any) => {
     console.log(err)
     logEvents(`${err.no}: ${err.code}\t${err.syscall}\t${err.hostname}`, 'mongoErrLog.log')

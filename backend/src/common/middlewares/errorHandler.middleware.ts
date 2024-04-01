@@ -1,7 +1,7 @@
 const { logEvents } = require('./logger.middleware');
 import {Response, Request, NextFunction} from "express";
 
-const errorHandlerMiddleware = (err:Error, req:Request, res:Response, next: NextFunction) => {
+export const errorHandlerMiddleware = (err:Error, req:Request, res:Response, next: NextFunction) => {
     logEvents(`${err.name}: ${err.message}\t${req.method}\t${req.url}\t${req.headers.origin}`, 'errLog.log');
     console.log(err.stack);
 
@@ -12,10 +12,9 @@ const errorHandlerMiddleware = (err:Error, req:Request, res:Response, next: Next
     }
 }
 
-class AuthenticationError extends Error {
+export class AuthenticationError extends Error {
     constructor(message: string) {
         super(message);
         this.name = "AuthenticationError";
     }
 }
-export = { errorHandlerMiddleware, AuthenticationError };

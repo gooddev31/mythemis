@@ -1,8 +1,8 @@
 import * as mongoose from 'mongoose';
-import IFolder from "../intefaces/folder.interface"
+import Folder from "../common/interfaces/folder.interface"
 import {ObjectId} from "mongodb";
 
-const FolderSchema = new mongoose.Schema<IFolder>({
+const FolderSchema = new mongoose.Schema<Folder>({
     name: {
         required: true,
         type: String
@@ -14,6 +14,13 @@ const FolderSchema = new mongoose.Schema<IFolder>({
         },
         username: String
     },
+    files: [
+        {
+            ref: "Folder",
+            type: mongoose.Schema.Types.Mixed,
+            required: false,
+        }
+    ],
     status: {
         type: Boolean,
         default: false
@@ -30,8 +37,8 @@ const FolderSchema = new mongoose.Schema<IFolder>({
         type: Date,
         default: new Date()
     },
-
 })
+
 const folderModal = mongoose.model("Folder", FolderSchema);
 
 export default folderModal;

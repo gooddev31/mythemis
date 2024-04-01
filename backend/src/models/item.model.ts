@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 import {ObjectId} from "mongodb";
-import IItem from "../intefaces/item.interface";
-
+import IItem from "../common/interfaces/item.interface";
 
 const ItemSchema = new mongoose.Schema<IItem>({
     name: {

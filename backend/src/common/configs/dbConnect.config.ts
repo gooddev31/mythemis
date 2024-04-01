@@ -7,4 +7,5 @@ const dbConnectConfig = async() => {
         console.log(e)
     }
 }
-module.exports = dbConnectConfig;
+
+export default dbConnectConfig;

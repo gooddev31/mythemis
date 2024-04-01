@@ -29,6 +29,7 @@ const getFolder = async (req: Request,res: Response) => {
         }
     }
 }
+
 const createFolder = async (req: Request,res: Response) => {
     const {name, creator} = req.body
     const folder = await FolderModel.create({
@@ -62,9 +63,6 @@ const updateFolder = async (req: Request, res: Response) => {
     }else {
         res.status(404).json({message: "Not found"})
     }
-}
-const searchItem = async (req: Request, res: Response) => {
-
 }
 
 export {getFolder, createFolder, deleteFolder, updateFolder}

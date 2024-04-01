@@ -10,4 +10,4 @@ router.put("/update/:id", updateFolder)
 
 router.use("/item/", itemRouter)
 
-module.exports = router;
+export default router;

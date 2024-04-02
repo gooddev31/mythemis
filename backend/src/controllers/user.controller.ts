@@ -1,66 +1,102 @@
-import { Request, Response } from "express";
-import User from "../models/user.model";
-import Folder from "../models/folder.model";
-import Team from "../models/team.model";
-import { ObjectId } from "mongodb";
-import File from "../models/file.model";
+import { Request, Response } from 'express';
+import User from '../models/user.model';
+import Folder from '../models/folder.model';
+import Team from '../models/team.model';
+import { ObjectId } from 'mongodb';
 
-const getUser = async (req: Request, res: Response) => {
+export default class UserController {
+  public async addUserToTeamByIds(req: Request, res: Response) {
+    const teamId = req.params.teamId;
     const userId = req.params.userId;
 
-    const user = await User.findById(userId, "name email");
-   
-    if (!user) {
-        return res.status(400);
+    const team = await Team.findOne({ _id: teamId });
+
+    if (!team) {
+      return res.status(404).json({
+        message: 'Team not found'
+      });
     }
 
-    return res.status(200).json(user);
-};
+    const addUser = await Team.findOneAndUpdate(
+      {
+        _id: team._id
+      },
+      {
+        $addToSet: {
+          users: {
+            userId
+          }
+        }
+      },
+      { new: true }
+    );
 
-const getTeamsFoldersByUserId = async (req: Request, res: Response) => {
+    return res.status(200).json(addUser);
+  }
+
+  public async getTeamsFoldersByUserId(req: Request, res: Response) {
     const userId = req.params.userId;
 
     const teams = await Team.find({
-        'users.userId': new ObjectId(userId)
-    }).select('folders')
+      'users.userId': new ObjectId(userId)
+    });
 
-    const folderIds = teams.map(team => team.folders).flat();
+    if (!teams) {
+      return res.status(404).json({
+        message: 'Team not found'
+      });
+    }
+
+    const folderIds = teams.map((team) => team.folders).flat();
     const folders = await Folder.find({
-        '_id': { $in: folderIds }
+      _id: { $in: folderIds }
     });
 
     return res.status(200).json(folders);
-}
+  }
 
-const getFoldersByUserId = async (req: Request, res: Response) => {
-    const id = req.params.userId;
-    const userId = req.user?._id;
+  public async updateUserById(req: Request, res: Response) {
+    const userId = req.params.userId;
 
-    const file = await File.create({
-        name: 'file test',
-        folder: {
-            _id: "65f316cd679ed4c4ccf7769f",
-            name: "test new"
-        }
+    const { username, email, company, subscribe, telephone } = req.body;
+
+    const user = await User.findByIdAndUpdate(
+      {
+        _id: new ObjectId(userId)
+      },
+      {
+        username,
+        email,
+        company,
+        subscribe,
+        telephone
+      },
+      {
+        id: true,
+        email: true,
+        username: true,
+        company: true,
+        telephone: true,
+        subscribe: true
+      }
+    );
+
+    return res.status(200).json(user);
+  }
+
+  public async getUser(req: Request, res: Response) {
+    const userId = req.params.userId;
+
+    const user = await User.findById(userId, {
+      id: true,
+      username: true,
+      email: true
     });
-    console.log(file)
-
-    const user = await User.findOne({ _id: new ObjectId(id) });
 
     if (!user) {
-        return res.status(404).json({
-            message: 'User not found'
-        })
+      return res.status(400);
     }
 
-    const folder = await Folder.find({ 
-        creator: { id: userId },
-    })
-
-    return res.status(200).json({ 
-        user,
-        folder
-    });
+    return res.status(200).json(user);
+  }
 }
-
-export { getUser, getFoldersByUserId, getTeamsFoldersByUserId };

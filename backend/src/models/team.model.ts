@@ -1,28 +1,30 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const TeamSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    users: [{
-        type: mongoose.Schema.Types.Mixed,
-        required: true,
-        default: [],
-    }],
-    folders: [
-        {
-            ref: "Folder",
-            type: mongoose.Schema.Types.Mixed,
-            required: false,
-        }
-    ],
-    createDate: {
-        type: Date,
-        default: new Date()
+  name: {
+    type: String,
+    required: true
+  },
+  users: [
+    {
+      type: mongoose.Schema.Types.Mixed,
+      required: true,
+      default: []
     }
-})
+  ],
+  folders: [
+    {
+      ref: 'Folder',
+      type: mongoose.Schema.Types.Mixed,
+      required: false
+    }
+  ],
+  createDate: {
+    type: Date,
+    default: new Date()
+  }
+});
 
-const teamModal = mongoose.model("Team", TeamSchema);
+const Team = mongoose.model('Team', TeamSchema);
 
-export default teamModal;
+export default Team;

@@ -1,4 +1,4 @@
 export default interface File extends Document {
-    name: String;
-    createDate: Date
+  name: string;
+  createDate: Date;
 }

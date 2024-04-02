@@ -1,26 +1,23 @@
-import { ObjectId } from "mongoose";
-import IFolder from "./folder.interface";
-import ITeam from "./team.interface";
+import { ObjectId } from 'mongoose';
+import IFolder from './folder.interface';
+import ITeam from './team.interface';
 
 export default interface User extends Document {
-    username: String;
-    password: String;
-    email: String;
-    telephone: Number;
-    age?: Number;
-    folders?: Array<IFolder>;
-    teams?: Array<ITeam>;
-    company?: String;
-    registerDate: Date;
-    subscribe?: Date;
-    comparePassword: (enteredPassword: string) => boolean;
+  username: string;
+  password: string;
+  email: string;
+  telephone: number;
+  age?: number;
+  folders?: Array<IFolder>;
+  teams?: Array<ITeam>;
+  company?: string;
+  registerDate: Date;
+  subscribe?: Date;
+  comparePassword: (enteredPassword: string) => boolean;
 }
 
 export interface UserBasicInfo {
-    _id: ObjectId;
-    username: String;
-    email: String;
+  _id: ObjectId;
+  username: string;
+  email: string;
 }
-
-
-

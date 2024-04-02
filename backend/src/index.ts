@@ -6,9 +6,9 @@ import mongoose from 'mongoose';
 import { loggerMiddleware, logEvents } from './common/middlewares/logger.middleware';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
-import AuthRouter from './routes/auth.router';
-import FolderRouter from './routes/folder.router';
-import UserRouter from './routes/user.router';
+import AuthRouter from './routes/auth.route';
+import FolderRouter from './routes/folder.route';
+import UserRouter from './routes/user.route';
 import { errorHandlerMiddleware } from './common/middlewares/errorHandler.middleware';
 import { authenticate } from './common/middlewares/auth.middleware';
 import express, { Express } from 'express';
@@ -53,6 +53,7 @@ app.use(
 app.use('/auth', AuthRouter);
 app.use('/users', authenticate, UserRouter);
 app.use('/folders', authenticate, FolderRouter);
+app.use('/events', authenticate, FolderRouter);
 
 app.use(errorHandlerMiddleware);
 

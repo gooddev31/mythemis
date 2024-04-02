@@ -5,7 +5,7 @@ export default class FolderController {
   public constructor(private readonly folderService: FolderService) {}
 
   public async getFolders(req: Request, res: Response) {
-    const page = req.params.page ? Number(req?.query?.page) : 1;
+    const page = req.query.page ? Number(req?.query?.page) : 1;
     const amount = req.query.amount ? Number(req?.query?.amount) : 5;
 
     const folders = await this.folderService.getFolders(amount, page);

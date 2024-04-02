@@ -2,16 +2,20 @@ import * as mongoose from 'mongoose';
 import File from '../common/interfaces/file.interface';
 
 const FileSchema = new mongoose.Schema<File>({
-  name: {
+  path: {
     required: true,
     type: String
   },
-  createDate: {
-    required: false,
+  theme: {
+    required: true,
+    type: String
+  },
+  date: {
+    required: true,
     type: Date
   }
 });
 
-const File = mongoose.model('File', FileSchema);
+const FileModel = mongoose.model('File', FileSchema);
 
-export default File;
+export default FileModel;

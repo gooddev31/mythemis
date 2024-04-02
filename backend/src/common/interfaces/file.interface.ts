@@ -1,6 +1,12 @@
 import { Document } from 'mongoose';
 
+export interface Pagination {
+  amount: number;
+  page: number;
+}
+
 export default interface File extends Document {
-  name: string;
-  createDate: Date;
+  path: string;
+  theme: string;
+  date: Date;
 }

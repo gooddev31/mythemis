@@ -33,6 +33,6 @@ const ItemSchema = new mongoose.Schema<IItem>({
     default: new Date()
   }
 });
-const Item = mongoose.model('ItemFolder', ItemSchema);
+const ItemModel = mongoose.model('ItemFolder', ItemSchema);
 
-export default Item;
+export default ItemModel;

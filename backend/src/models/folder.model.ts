@@ -39,6 +39,6 @@ const FolderSchema = new mongoose.Schema<Folder>({
   }
 });
 
-const Folder = mongoose.model('Folder', FolderSchema);
+const FolderModel = mongoose.model('Folder', FolderSchema);
 
-export default Folder;
+export default FolderModel;

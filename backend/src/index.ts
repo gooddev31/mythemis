@@ -9,7 +9,7 @@ import cookieParser from 'cookie-parser';
 import AuthRouter from './routes/auth.route';
 import FolderRouter from './routes/folder.route';
 import UserRouter from './routes/user.route';
-import { errorHandlerMiddleware } from './common/middlewares/errorHandler.middleware';
+import FileRouter from './routes/file.route';
 import { authenticate } from './common/middlewares/auth.middleware';
 import express, { Express } from 'express';
 import helmet from 'helmet';
@@ -54,8 +54,8 @@ app.use('/auth', AuthRouter);
 app.use('/users', authenticate, UserRouter);
 app.use('/folders', authenticate, FolderRouter);
 app.use('/events', authenticate, FolderRouter);
+app.use('/files', FileRouter);
 
-app.use(errorHandlerMiddleware);
 
 mongoose.connection.once('open', () => {
   console.log('Connection to MongoDB success');

@@ -7,7 +7,7 @@ import { UserBasicInfo } from '../interfaces/user.interface';
 
 const authenticate = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const token = req.cookies.jwt;
+    const token = req.headers.authorization.replace('Bearer', ' ').trim();
     if (!token) {
       throw new AuthenticationError('Token not found');
     }

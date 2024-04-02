@@ -1,4 +1,4 @@
-import { ObjectId } from 'mongoose';
+import { ObjectId, Document } from 'mongoose';
 
 export default interface Item extends Document {
   name: string;

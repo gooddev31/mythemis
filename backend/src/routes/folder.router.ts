@@ -1,13 +1,14 @@
 import express from 'express';
 import { authenticate } from '../common/middlewares/auth.middleware';
 import itemRouter from './item.router';
-import FolderController from '../controllers/folder.controller';
+import FolderController from '../modules/folder/folder.controller';
+import FolderService from '../modules/folder/folder.service';
 
 const router = express.Router();
 
-const folderController = new FolderController();
+const folderController = new FolderController(new FolderService());
 
-router.get('/', authenticate, folderController.getFolder.bind(folderController));
+router.get('/', authenticate, folderController.getFolders.bind(folderController));
 router.get(
   '/users/:userId',
   authenticate,
@@ -17,6 +18,6 @@ router.post('/', authenticate, folderController.createFolder.bind(folderControll
 router.put('/update/:id', authenticate, folderController.updateFolder.bind(folderController));
 router.delete('/delete/:id', authenticate, folderController.deleteFolder.bind(folderController));
 
-router.use('/item/', itemRouter);
+router.use('/items/', itemRouter);
 
 export default router;

@@ -1,4 +1,4 @@
-import { ObjectId } from 'mongoose';
+import { ObjectId, Document } from 'mongoose';
 import IFolder from './folder.interface';
 import ITeam from './team.interface';
 

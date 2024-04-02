@@ -1,3 +1,4 @@
+import { Document } from 'mongoose';
 import User from './user.interface';
 
 export default interface ITeam extends Document {

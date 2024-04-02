@@ -1,4 +1,4 @@
-import { ObjectId } from 'mongoose';
+import { ObjectId, Document } from 'mongoose';
 import Item from './item.interface';
 import File from './file.interface';
 

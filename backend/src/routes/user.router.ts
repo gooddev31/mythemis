@@ -1,13 +1,14 @@
 import express from 'express';
-import UserController from '../controllers/user.controller';
+import UserController from '../modules/user/user.controller';
 import { authenticate } from '../common/middlewares/auth.middleware';
 import { upload } from '../common/utils/multer.util';
+import UserService from '../modules/user/user.service';
 
 const router = express.Router();
 
-const userController = new UserController();
+const userController = new UserController(new UserService());
 
-router.get('/:userId', authenticate, userController.getUser.bind(userController));
+router.get('/:userId', authenticate, userController.getUserById.bind(userController));
 router.get(
   '/:userId/folders/teams',
   authenticate,

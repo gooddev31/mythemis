@@ -7,7 +7,7 @@ const router = express.Router();
 
 const userController = new UserController();
 
-router.get('/:userId', userController.getUser.bind(userController));
+router.get('/:userId', authenticate, userController.getUser.bind(userController));
 router.get(
   '/:userId/folders/teams',
   authenticate,

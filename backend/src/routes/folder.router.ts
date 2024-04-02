@@ -7,15 +7,15 @@ const router = express.Router();
 
 const folderController = new FolderController();
 
-router.get('/', folderController.getFolder.bind(folderController));
+router.get('/', authenticate, folderController.getFolder.bind(folderController));
 router.get(
   '/users/:userId',
   authenticate,
   folderController.getFoldersByUserId.bind(folderController)
 );
-router.post('/', folderController.createFolder.bind(folderController));
-router.put('/update/:id', folderController.updateFolder.bind(folderController));
-router.delete('/delete/:id', folderController.deleteFolder.bind(folderController));
+router.post('/', authenticate, folderController.createFolder.bind(folderController));
+router.put('/update/:id', authenticate, folderController.updateFolder.bind(folderController));
+router.delete('/delete/:id', authenticate, folderController.deleteFolder.bind(folderController));
 
 router.use('/item/', itemRouter);
 

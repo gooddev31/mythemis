@@ -1,5 +1,4 @@
 import * as dotenv from 'dotenv';
-import 'express-async-errors';
 
 import bodyParser from 'body-parser';
 import dbConnect from './common/configs/dbConnect.config';
@@ -15,6 +14,19 @@ import { authenticate } from './common/middlewares/auth.middleware';
 import express, { Express } from 'express';
 import helmet from 'helmet';
 import allowedOriginsConfig from './common/configs/allowedOrigins.config';
+import { FolderBasicInfo } from './common/interfaces/folder.interface';
+import { UserBasicInfo } from './common/interfaces/user.interface';
+
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace Express {
+    export interface Request {
+      user?: UserBasicInfo | null;
+      folder?: FolderBasicInfo | null;
+      userId: string;
+    }
+  }
+}
 
 dotenv.config();
 

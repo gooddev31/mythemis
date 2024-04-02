@@ -8,24 +8,24 @@ export default class ItemController {
     if (ItemId) {
       const Items = await Item.findOne({ ItemId });
       if (Items) {
-        res.status(200).json({
+        return res.status(200).json({
           message: {
             Items
           }
         });
       } else {
-        res.status(400).json({ message: 'No Items' });
+        return res.status(400).json({ message: 'No Items' });
       }
     } else if (ItemId === '0') {
       const Items = await Item.findOne({});
       if (Items) {
-        res.status(200).json({
+        return res.status(200).json({
           message: {
             Items
           }
         });
       } else {
-        res.status(400).json({ message: 'No Items' });
+        return res.status(400).json({ message: 'No Items' });
       }
     }
   }
@@ -41,18 +41,18 @@ export default class ItemController {
     });
 
     if (item && (await Folder.findOne({ _id: folder.id }))) {
-      res.status(200).json({ message: item });
+      return res.status(200).json({ message: item });
     } else {
-      res.status(400).json({ message: "Item can't create" });
+      return res.status(400).json({ message: "Item can't create" });
     }
   }
   public async deleteItem(req: Request, res: Response) {
     const FolderId = req.params.id;
     if (await Item.findOne({ FolderId })) {
       await Item.deleteOne({ _id: FolderId });
-      res.status(204).json({ message: 'Deleted' });
+      return res.status(204).json({ message: 'Deleted' });
     } else {
-      res.status(404).json({ message: 'Not found' });
+      return res.status(404).json({ message: 'Not found' });
     }
   }
   public async updateItem(req: Request, res: Response) {
@@ -67,9 +67,9 @@ export default class ItemController {
           status
         }
       );
-      res.status(202).json({ message: 'Updated' });
+      return res.status(202).json({ message: 'Updated' });
     } else {
-      res.status(404).json({ message: 'Not found' });
+      return res.status(404).json({ message: 'Not found' });
     }
   }
 }

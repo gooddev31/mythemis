@@ -10,26 +10,26 @@ export default class FolderController {
     if (!req.query.id && !req.query.page && !req.query.amount) {
       const Folders = await Folder.find({});
       if (Folders) {
-        res.status(200).json({
+        return res.status(200).json({
           message: {
             Folders
           }
         });
       } else {
-        res.status(400).json({ message: 'No Folders' });
+        return res.status(400).json({ message: 'No Folders' });
       }
     } else if (!req.query.id) {
       const Folders = await Folder.find({})
         .limit(Number(amount))
         .skip(Number((page - 1) * amount + Number(page - 1 === 0 ? null : 1)));
       if (Folders) {
-        res.status(200).json({
+        return res.status(200).json({
           message: {
             Folders
           }
         });
       } else {
-        res.status(400).json({ message: 'No Folders' });
+        return res.status(400).json({ message: 'No Folders' });
       }
     }
   }
@@ -71,7 +71,7 @@ export default class FolderController {
       creator
     });
     if (folder) {
-      res.status(200).json({ folder });
+      return res.status(200).json({ folder });
     }
   }
 
@@ -79,9 +79,9 @@ export default class FolderController {
     const folderId = req.params.id;
     if (await Folder.findOne({ folderId })) {
       await Folder.deleteOne({ _id: folderId });
-      res.status(204).json({ message: 'Deleted' });
+      return res.status(204).json({ message: 'Deleted' });
     } else {
-      res.status(404).json({ message: 'Not found' });
+      return res.status(404).json({ message: 'Not found' });
     }
   }
 
@@ -97,9 +97,9 @@ export default class FolderController {
           status
         }
       );
-      res.status(202).json({ message: 'Updated' });
+      return res.status(202).json({ message: 'Updated' });
     } else {
-      res.status(404).json({ message: 'Not found' });
+      return res.status(404).json({ message: 'Not found' });
     }
   }
 }

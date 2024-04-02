@@ -11,7 +11,6 @@
     "strictNullChecks": false,
     "noUncheckedIndexedAccess": true,
     "outDir": "./dist",
-    "typeRoots": ["./types", "./node_modules/@types"],
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "declaration": true,

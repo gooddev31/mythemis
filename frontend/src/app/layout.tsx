@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "@/redux/Provider";
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+
 
 const inter = Inter({ subsets: ["latin"] });
 

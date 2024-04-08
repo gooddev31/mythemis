@@ -5,7 +5,7 @@ import "react-datepicker/src/stylesheets/datepicker.scss"
 
 const MyContainer = ({ className, children }) => {
     return (
-        <div className="relative mt-[50.83px] calendar">
+        <div className="relative mt-[50.83px] w-full calendar">
             {children}
         </div>
     );

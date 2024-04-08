@@ -1,3 +1,6 @@
 {
-  "/not-found": "app/not-found.js"
+  "/not-found": "app/not-found.js",
+  "/analiz/page": "app/analiz/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/dashboard/calendar/page": "app/dashboard/calendar/page.js"
 }

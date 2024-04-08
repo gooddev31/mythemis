@@ -13,7 +13,7 @@ const Analiz = () => {
     const activeComponent = useSelector((state: RootState) => state.activeComponent.value);
 
     return (
-        <div className="py-[65px] px-[45px] bg-[#F1F4FA] flex gap-[28px] font-quicksand">
+        <div className="py-[65px] pr-[45px] bg-[#F1F4FA] flex gap-[28px] font-quicksand">
             <SideActionBarComponent />
             <div>
                 <NavBarComponent />

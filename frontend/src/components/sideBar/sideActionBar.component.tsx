@@ -17,7 +17,7 @@ const SideActionBarComponent = () => {
 
 
     return(
-        <div className="bg-[#FFFFFF] rounded-[31px] w-[281px] py-[13px]">
+        <div className="bg-[#FFFFFF] rounded-tr-[32px] rounded-br-[32px] w-[281px] py-[13px]">
             <div className="px-[16px] flex flex-col items-center">
                 <div className="flex flex-col items-center gap-y-[8px]">
                     <Image src="/img/logoEmblemDashboard.svg" alt="Logo" width={72} height={74}/>

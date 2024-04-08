@@ -11,10 +11,13 @@ const CalendarSectionComponent = () => {
 
     return (
         <div className="w-full flex-col h-[1070px] bg-white rounded-[18.96px] justify-start items-start inline-flex mt-[58px]">
-            calendar
-            <div className=" bg-yellow-300 w-48 flex justify-between">
+            
+            <div className="w-full flex justify-between h-full">
+                <div className="w-500px flex mr-[90px">
+
                 <RideSideCalendarComponent />
-                <div style={{ height: 700, width:700 }}>
+                </div>
+                <div className="w-full h-full">
                     <ComplianceCalender/>
                 </div>
             </div>

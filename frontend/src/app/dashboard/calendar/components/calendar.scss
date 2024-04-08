@@ -1,11 +1,70 @@
-.bigCalendarContainer{
-    width: 1000px;
+.bigCalendarContainer {
+    width: 100%;
     display: flex;
 }
-.rbc-calendar{
+
+.rbc-calendar {
     width: 100%;
 }
 
-.rbc-time-header{
+.rbc-time-header {
     display: none;
+}
+
+.rbc-timeslot-group {
+    border: none;
+
+}
+
+
+// time slot
+.rbc-time-gutter.rbc-time-column {
+    .rbc-timeslot-group {
+        .rbc-time-slot {
+            flex: none;
+            height: 85px;
+        }
+    }
+}
+
+// day slot
+.rbc-day-slot.rbc-time-column {
+    .rbc-timeslot-group {
+        .rbc-time-slot {
+            flex: none;
+            height: 85px;
+
+            &:first-child {
+                // background-color: aqua;
+                border-top: 2px grey solid;
+                flex: none;
+                // align-items: flex-end;
+                display: flex;
+
+            }
+        }
+    }
+}
+
+.rbc-events-container {
+    // overflow-y: scroll;
+}
+
+.bigCalendarContainer {
+    overflow-y: scroll;
+    height: 100%;
+}
+
+.rbc-btn-group {
+    display: none;
+}
+
+.rbc-toolbar-label {
+    display: flex;
+    justify-content: flex-start;
+    color: #333333;
+    font-size: 31.35px;
+    font-family: 'Poppins';
+    font-weight: 500;
+    word-wrap: break-word;
 }

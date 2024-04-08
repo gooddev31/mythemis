@@ -45,26 +45,28 @@ import {
   ];
   
   
-  const styles = {
-    container: {
-      width: "80wh",
-      height: "60vh",
-      margin: "2em"
-    }
-  };
   
   export default function CustomCalendar() {
+    console.log(Views.DAY);
+    let formats = {
+      timeGutterFormat: 'HH:mm',
+    }
+    
+    
     return (
       <div className="bigCalendarContainer">
         <BigCalendar
           selectable
-          toolbar={false}
+          // toolbar={false}
           localizer={localizer}
           events={events}
           defaultView={Views.DAY}
-          views={"day"}
+          
+          // views={"day"}
+          formats={formats}
+          // @ts-ignore
           steps={60}
-          defaultDate={new Date(2018, 0, 29)}
+          defaultDate={new Date(2018, 0, 30)}
           resourceIdAccessor="resourceId"
           resourceTitleAccessor="resourceTitle"
           dateFormat="h t"
